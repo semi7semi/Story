@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}{% endblock title %}
+{% block content %}
+<div class="dashboard-header m-2 p-2">
+    <div class="dashboard-menu">
+        <div class="menu-item">
+            <div class="nav nav-pills nav-justified">
+                <a class="nav-link btn-color" href="{% url 'add-story' %}">Dodaj Opowiadanie</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="m-2 p-4 border-dashed">
+        <h2 class="dashboard-content-title">
+            <span>Opowiadania</span>
+        </h2>
+        <table class="table css-serial">
+            <thead>
+            <tr>
+                <th>Tytuł</th>
+                <th>Typ</th>
+                <th>Data</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for story in stories %}
+            <tr>
+                <td>{{story.title}}</td>
+                <td>{{story.type}}</td>
+                <td>{{story.publication_date}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col">
+        <div class="dashboard-alerts row">
+            <div class="m-4 p-4 alert-item alert-info">
+                <span class="font-weight-bold">Liczba opowiadan: 3</span>
+            </div>
+            <div class="m-4 p-4 alert-item alert-light">
+                <span class="font-weight-bold">Liczba innych opowiadan: 5</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
