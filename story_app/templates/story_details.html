@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="m-4 p-4 border-dashed col-8">
+        <h2 class="dashboard-content-title">
+            <span>Opowiadanie {{ story.title }} </span>
+        </h2>
+        <p>{{ story.plot }}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-1">
+        <div class="nav flex-column nav-pills">
+            <a class="nav-link btn-color rounded-1 pt-1 pb-1" href="{% url 'main' %}">Powrót</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

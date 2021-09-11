@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from story_app.views import Index, AddStoryView
+from story_app.views import Index, AddStoryView, StoryDetailsView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Index.as_view(), name='main'),
     path('add/', AddStoryView.as_view(), name='add-story'),
+    path('story/<int:id>/', StoryDetailsView.as_view(), name='story-details'),
     ]

@@ -7,9 +7,11 @@ from story_app.models import Story
 
 class Index(View):
     def get(self, request):
-        stories = Story.objects.all()
+        stories = Story.objects.all().order_by("-publication_date")
+        no_of_stories = Story.objects.count()
         ctx = {
-            "stories": stories
+            "stories": stories,
+            "no_of_stories": no_of_stories
         }
         return render(request, "index.html", ctx)
 
@@ -25,5 +27,16 @@ class AddStoryView(View):
         form = AddStory(request.POST)
         if form.is_valid():
             story = form.cleaned_data["title"]
-            form.save()
+            code = form.cleaned_data["code"]
+            if code == "maxlove":
+                form.save()
             return redirect("main")
+
+
+class StoryDetailsView(View):
+    def get(self, request, id):
+        story = Story.objects.get(pk=id)
+        ctx = {
+            "story": story
+        }
+        return render(request, "story_details.html", ctx)

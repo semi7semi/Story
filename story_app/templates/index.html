@@ -2,12 +2,12 @@
 {% block title %}{% endblock title %}
 {% block content %}
 <div class="dashboard-header m-2 p-2">
-    <div class="dashboard-menu">
-        <div class="menu-item">
-            <div class="nav nav-pills nav-justified">
-                <a class="nav-link btn-color" href="{% url 'add-story' %}">Dodaj Opowiadanie</a>
+            <div class="dashboard-alerts row">
+            <div class="m-4 p-4 alert-item alert-info">
+                <span class="font-weight-bold">Liczba opowiadan: {{ no_of_stories }}</span>
             </div>
         </div>
+    <div class="dashboard-menu">
     </div>
 </div>
 <div class="row">
@@ -21,29 +21,22 @@
                 <th>Tytuł</th>
                 <th>Typ</th>
                 <th>Data</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
             {% for story in stories %}
             <tr>
-                <td>{{story.title}}</td>
+                <td class="text-color-darker"><strong>{{story.title}}</strong></td>
                 <td>{{story.type}}</td>
                 <td>{{story.publication_date}}</td>
+                <td><a class="btn btn-secondary rounded-1" href="{% url 'story-details' story.id %}">Czytaj</a></td>
             </tr>
             {% endfor %}
             </tbody>
         </table>
     </div>
-    <div class="col">
-        <div class="dashboard-alerts row">
-            <div class="m-4 p-4 alert-item alert-info">
-                <span class="font-weight-bold">Liczba opowiadan: 3</span>
-            </div>
-            <div class="m-4 p-4 alert-item alert-light">
-                <span class="font-weight-bold">Liczba innych opowiadan: 5</span>
-            </div>
-        </div>
-    </div>
+
 </div>
 
 

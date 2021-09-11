@@ -2,19 +2,15 @@
 /*---- Main style ----*/
 /*------------------------------*/
 :root {
-  --link-color: #5E376D;
+  --link-color: #4A3C79;
   --light-link-color: #fffffa;
-  --background-color: #63277a;
-  --lighter-background-color: #747080;
-  --lighter-text-color: #9fa292;
+  --background-color: #F73989;
+  --lighter-background-color: #CABC99;
+  --lighter-text-color: #181619;
   --dark-text: #000000;
   --blue: #007bff;
-  --yellow: #5E376D;
-  --yellow2: #ffcc00;
+  --yellow: #ffc107;
   --green: #1e7e34;
-  --red: #cc0000;
-  --light-red: #ff3333;
-  --grey: #D3D3D3;
   font-size: 16px;
 }
 
@@ -36,65 +32,9 @@ body {
 p {
   font-size: 1.2rem;
 }
-.css-serial {
-  counter-reset: serial-number;  /* Set the serial number counter to 0 */
-}
-
-.css-serial td:first-child:before {
-  counter-increment: serial-number;  /* Increment the serial number counter */
-  content: counter(serial-number);  /* Display the counter */
-  min-width: 1em;
-  margin-right: 0.5em;
-}
-
-.tab-color-green {
-    background: var(--green);
-}
-.tab-color-yellow {
-    background: var(--yellow2);
-}
-.tab-color-red {
-    background: var(--light-red);
-}
-.tab-color-grey {
-    background: var(--grey);
-}
-.tab-my {
-    width: 60px;
-    border-space: 2px;
-}
-
-.tab-my2 {
-    width: 40px;
-    border-space: 2px;
-    border-width: thin;
-}
-
-/*table {*/
-/*counter-reset: rowNumber;*/
-/*}*/
-/*table tr {*/
-/* counter-increment: rowNumber;*/
-/*}*/
-/*table tr td:first-child::before {*/
-/*content: counter(rowNumber);*/
-/*min-width: 1em;*/
-/*margin-right: 0.5em;*/
-/*}*/
-
-.user-color {
-  font-weight: bold;
-  color: var(--lighter-background-color);
-}
 
 .bg-light {
 background: #EAEAEA;
-}
-
-.bg-purp {
-  background: var(--background-color);
-  color: var(--light-link-color);
-  padding: 20px;
 }
 
 .noPadding {
@@ -115,55 +55,12 @@ background: #EAEAEA;
 }
 .btn-color a {
   text-decoration: none;
-  color: var(--light-link-color);
+  color: var(--light-link-color); 
 }
+
 .btn-color:hover {
-  opacity: 0.8;
+  opacity: .8;
 }
-.btn-color-excel {
-  background-color: var(--green);
-  color: var(--light-link-color);
-  font-weight: 600;
-  font-size: 20px;
-  padding: 8px 18px;
-}
-.btn-color-excel a {
-  text-decoration: none;
-  color: var(--light-link-color);
-}
-.btn-color-excel:hover {
-  opacity: 0.8;
-}
-.btn-color-grey {
-  background-color: var(--lighter-background-color);
-  color: var(--light-link-color);
-  font-weight: 600;
-  font-size: 20px;
-  padding: 8px 18px;
-}
-.btn-color-grey a {
-  text-decoration: none;
-  color: var(--light-link-color);
-}
-.btn-color-grey:hover {
-  opacity: 0.8;
-}
-
-.btn-color-red {
-  background-color: var(--red);
-  color: var(--light-link-color);
-  font-weight: 600;
-  font-size: 20px;
-  padding: 8px 18px;
-}
-.btn-color-red a {
-  text-decoration: none;
-  color: var(--red);
-}
-.btn-color-red:hover {
-  opacity: 0.8;
-}
-
 .label-size {
   font-size: 1.4rem;
   color: var(--background-color);
@@ -179,12 +76,11 @@ hr {
 }
 
 .border-dashed{
-  border: 0.5px dashed  var(--lighter-background-color);
+  border: .5px dashed  var(--lighter-background-color);
   background: var(--light-link-color);
-  display: inline-block;
  }
 
-.borderless td, .borderless th {
+ .borderless td, .borderless th {
   border: none;
 }
 
@@ -203,15 +99,6 @@ hr {
 
 .text-color-lighter {
   color: var(--lighter-text-color);
-}
-
-.color-king {
-  color: #c8002a;
-}
-
-.color-red {
-  color: #cc0000;
-  font-weight: bold;
 }
 
 .color-header {
@@ -258,7 +145,7 @@ margin: 0 auto !important;
 
 .page-header .nav .nav-item .active,
 .page-header .nav .nav-item a:hover{
-    color: var(--lighter-background-color)!important;
+    color: var(--link-color)!important;
 }
 
 .main-logo {
@@ -433,7 +320,7 @@ margin: 0 auto !important;
 }
 .dashboard-section .nav-item {
   display: block;
-  width: auto;
+  width: 260px;
   margin-bottom: 20px;
 }
 .dashboard-section .nav-item i.fa-angle-right {
@@ -512,9 +399,8 @@ margin: 0 auto !important;
 }
 
 .dashboard-alerts {
-  margin-right: 10%;
-
-
+  margin-left: 50px;
+  width: 70%;
 }
 .alert-item {
   padding: 10px;
@@ -570,35 +456,4 @@ margin: 0 auto !important;
 }
 .schedules-content-header {
   margin-bottom: 50px;
-}
-
-.icon {
-  width: 25px;
-  height: 25px;
-  background-size: cover;
-  margin: 10px;
-}
-
-.icon-gen {
-  background-image: url(../images/crown.png);
-}
-
-.icon-cup {
-  background-image: url(../images/dice.png);
-}
-
-.icon-veg {
-  background-image: url(../images/salad.png);
-}
-
-.icon-logo {
-  background-image: url(../images/dice.png);
-}
-/*------------------------------*/
-/*---- Tabelka paringowa ----*/
-/*------------------------------*/
-
-.tabelka {
- width: 25px;
- height: 25px;
 }
