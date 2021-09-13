@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %} UI Typography {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header mb-5">
+        <h5 class="card-category"></h5>
+        <h1 class="card-title">Opowiadanie {{ story.title }}</h1>
+      </div>
+      <div class="card-body">
+<!--        <div class="typography-line">-->
+<!--          <h1><span>Header 1</span>The Life of Black Dashboard </h1>-->
+<!--        </div>-->
+          <h4>
+            {{ story.plot }}
+          </h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

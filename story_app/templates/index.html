@@ -1,43 +1,82 @@
-{% extends "base.html" %}
-{% block title %}{% endblock title %}
+{% extends 'base.html' %}
+
+{% block title %} UI Tables {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
 {% block content %}
-<div class="dashboard-header m-2 p-2">
-            <div class="dashboard-alerts row">
-            <div class="m-4 p-4 alert-item alert-info">
-                <span class="font-weight-bold">Liczba opowiadan: {{ no_of_stories }}</span>
-            </div>
-        </div>
-    <div class="dashboard-menu">
-    </div>
-</div>
+
 <div class="row">
-    <div class="m-2 p-4 border-dashed">
-        <h2 class="dashboard-content-title">
-            <span>Opowiadania</span>
-        </h2>
-        <table class="table css-serial">
-            <thead>
-            <tr>
+  <div class="col-md-12">
+    <div class="card ">
+      <div class="card-header">
+        <h4 class="card-title"> Lista opowiadan</h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table tablesorter " id="">
+            <thead class=" text-primary">
+              <tr>
                 <th>Tytuł</th>
-                <th>Typ</th>
+                <th>Kategoria</th>
                 <th>Data</th>
-                <th></th>
-            </tr>
+<!--                <th class="text-center"></th>-->
+              </tr>
             </thead>
             <tbody>
             {% for story in stories %}
             <tr>
-                <td class="text-color-darker"><strong>{{story.title}}</strong></td>
+                <td><strong>{{story.title}}</strong></td>
                 <td>{{story.type}}</td>
                 <td>{{story.publication_date}}</td>
-                <td><a class="btn btn-secondary rounded-1" href="{% url 'story-details' story.id %}">Czytaj</a></td>
-            </tr>
+                <td><a href="{% url 'story-details' story.id %}">Czytaj</a></td>
+
+<!--                <td class="text-center"></td>-->
+              </tr>
             {% endfor %}
             </tbody>
-        </table>
+          </table>
+        </div>
+      </div>
     </div>
-
+  </div>
+<!--  <div class="col-md-12">-->
+<!--    <div class="card  card-plain">-->
+<!--      <div class="card-header">-->
+<!--        <h4 class="card-title"> Table on Plain Background</h4>-->
+<!--        <p class="category"> Here is a subtitle for this table</p>-->
+<!--      </div>-->
+<!--      <div class="card-body">-->
+<!--        <div class="table-responsive">-->
+<!--          <table class="table tablesorter " id="">-->
+<!--            <thead class=" text-primary">-->
+<!--              <tr>-->
+<!--                <th>Tytuł</th>-->
+<!--                <th>Kategoria</th>-->
+<!--                <th>Data</th>-->
+<!--&lt;!&ndash;                <th class="text-center"></th>&ndash;&gt;-->
+<!--              </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            {% for story in stories %}-->
+<!--            <tr>-->
+<!--                <td><strong>{{story.title}}</strong></td>-->
+<!--                <td>{{story.type}}</td>-->
+<!--                <td>{{story.publication_date}}</td>-->
+<!--                <td><a href="{% url 'story-details' story.id %}">Czytaj</a></td>-->
+<!--&lt;!&ndash;                <td class="text-center"></td>&ndash;&gt;-->
+<!--              </tr>-->
+<!--            {% endfor %}-->
+<!--            </tbody>-->
+<!--          </table>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
 </div>
-
-
 {% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

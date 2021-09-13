@@ -22,7 +22,7 @@ class AddStoryView(View):
         ctx = {
             "form": form
         }
-        return render(request, "add_story.html", ctx)
+        return render(request, "story_add.html", ctx)
     def post(self, request):
         form = AddStory(request.POST)
         if form.is_valid():
@@ -39,4 +39,10 @@ class StoryDetailsView(View):
         ctx = {
             "story": story
         }
-        return render(request, "story_details.html", ctx)
+        return render(request, "story.html", ctx)
+
+
+class TypographyView(View):
+    def get(self, request):
+
+        return render(request, "ui-typography.html")
