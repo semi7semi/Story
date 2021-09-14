@@ -1,29 +1,66 @@
 {% extends 'base.html' %}
 
-{% block title %} Page Blank {% endblock %} 
+{% block title %} Page Blank {% endblock %}
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %}
 
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card card-profile">
-                <div class="card-body">
-<!--                    <h6 class="card-category text-gray">Page Blank</h6>-->
-<!--                    <h4 class="card-title"></h4>-->
-                       <form action="" method="POST">
-        {{ form.as_p }}
-        <input class="btn btn-secondary btn-round" type="submit" value="Dodaj">
-        {% csrf_token %}
-    </form>
-                    <a href="/" class="btn btn-primary btn-round">Home</a>
-                </div>
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">Dodaj Opowiadanie</h5>
             </div>
+            <div class="card-body">
+                <form action="" method="POST">
+                    <div class="row">
+                        <div class="col-md-6 pr-md-1">
+                            <div class="form-group">
+                                {{ form.title.label_tag }}
+                                {{ form.title.error }}
+                                {{ form.title }}
+                            </div>
+                        </div>
+                        <div class="col-md-3 pr-md-1">
+                            <div class="form-group">
+                                {{ form.type.label_tag }}
+                                {{ form.type.error }}
+                                {{ form.type }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                {{ form.plot.label_tag }}
+                                {{ form.plot.error }}
+                                {{ form.plot }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 pr-md-1">
+                            <div class="form-group">
+                                {{ form.code.label_tag }}
+                                {{ form.code.error }}
+                                {{ form.code }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                                <button type="submit" class="btn btn-fill btn-primary">Save</button>
+                            </div>
+                    {% csrf_token %}
+                </form>
+            </div>
+            <!--            <a href="/" class="btn btn-primary btn-round">Home</a>-->
         </div>
     </div>
-    
+</div>
+
+
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE  -->

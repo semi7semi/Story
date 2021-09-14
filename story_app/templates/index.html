@@ -8,7 +8,7 @@
 {% block content %}
 
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-8">
     <div class="card ">
       <div class="card-header">
         <h4 class="card-title"> Lista opowiadan</h4>
@@ -27,10 +27,10 @@
             <tbody>
             {% for story in stories %}
             <tr>
-                <td><strong>{{story.title}}</strong></td>
+              <td><strong><a href="{% url 'story-details' story.id %}">{{story.title}}</a></strong></td>
                 <td>{{story.type}}</td>
                 <td>{{story.publication_date}}</td>
-                <td><a href="{% url 'story-details' story.id %}">Czytaj</a></td>
+<!--                <td><a href="{% url 'story-details' story.id %}">Czytaj</a></td>-->
 
 <!--                <td class="text-center"></td>-->
               </tr>
