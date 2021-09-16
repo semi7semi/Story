@@ -8,3 +8,4 @@ django-heroku
 python-decouple
 dj-database-url
 dj-static
+whitenoise

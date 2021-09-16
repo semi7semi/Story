@@ -77,21 +77,21 @@ WSGI_APPLICATION = 'Story.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
-}
+#
 # DATABASES = {
-#     'default': {
-#         'HOST': '127.0.0.1',
-#         'NAME': 'story_db',
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'USER': 'postgres',
-#         'PASSWORD': 'marcin7',
-#     }
+#     'default': dj_database_url.config(
+#         default=config('DATABASE_URL')
+#     )
 # }
+DATABASES = {
+    'default': {
+        'HOST': '127.0.0.1',
+        'NAME': 'story_db',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'USER': 'postgres',
+        'PASSWORD': 'marcin7',
+    }
+}
 
 
 # Password validation
@@ -139,11 +139,3 @@ STATICFILES_DIRS = [
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, "static"),
-# ]
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
