@@ -26,8 +26,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*)224jc0dn_rd06v!1q@p$=zxd#utp0r815vlw_p*05^c#ra@*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
-
+# DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = True
 ALLOWED_HOSTS = []
 
 
@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'Story.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-#
+# #
 DATABASES = {
     'default': dj_database_url.config(
         default=config('DATABASE_URL')

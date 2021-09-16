@@ -14,5 +14,5 @@ class AddStory(forms.ModelForm):
         widgets = {
             "title": forms.TextInput(attrs={'class': "form-control"}),
             "type": forms.Select(attrs={'class': "form-control"}),
-            "plot": forms.Textarea(attrs={'class': "form-control", 'cols': 100, 'rows': 100}),
+            "plot": forms.Textarea(attrs={'class': "form-control"}),
         }
