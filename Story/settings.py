@@ -30,7 +30,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 # DEBUG = True
 ALLOWED_HOSTS = [
-    'https://dla-magdy.herokuapp.com/',
+    '.herokuapp.com/',
     'localhost',
     '127.0.0.1'
 ]
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'whitenoise.runserver_nostatic'
     'story_app',
 ]
 
@@ -139,7 +140,7 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(PROJECT_ROOT, "static"),
 ]
 
 # Activate Django-Heroku.
