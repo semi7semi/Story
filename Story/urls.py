@@ -16,13 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from story_app.views import Index, AddStoryView, StoryDetailsView, TypographyView
+from story_app.views import Index, AddStoryView, StoryDetailsView, TypographyView, StoryDeleteView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Index.as_view(), name='main'),
     path('add/', AddStoryView.as_view(), name='add-story'),
     path('story/<int:id>/', StoryDetailsView.as_view(), name='story-details'),
-    path('ui-typography/', TypographyView.as_view(), name='typo')
+    path('ui-typography/', TypographyView.as_view(), name='typo'),
+    path("delete_story/<int:id>/", StoryDeleteView.as_view(), name='story-delete'),
 
     ]

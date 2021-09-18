@@ -21,7 +21,7 @@
                 <th>Tytuł</th>
                 <th>Kategoria</th>
                 <th>Data</th>
-<!--                <th class="text-center"></th>-->
+                <th class="text-center"></th>
               </tr>
             </thead>
             <tbody>
@@ -30,8 +30,9 @@
               <td><strong><a href="{% url 'story-details' story.id %}">{{story.title}}</a></strong></td>
                 <td>{{story.type}}</td>
                 <td>{{story.publication_date}}</td>
-<!--                <td><a href="{% url 'story-details' story.id %}">Czytaj</a></td>-->
-
+              {% if request.user.is_superuser %}
+                <td><a href="{% url 'story-delete' story.id %}">Usun</a></td>
+              {% endif %}
 <!--                <td class="text-center"></td>-->
               </tr>
             {% endfor %}

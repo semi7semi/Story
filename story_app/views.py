@@ -42,6 +42,13 @@ class StoryDetailsView(View):
         return render(request, "story.html", ctx)
 
 
+class StoryDeleteView(View):
+    def get(self, request, id):
+        story = Story.objects.get(pk=id)
+        story.delete()
+        return redirect("main")
+
+
 class TypographyView(View):
     def get(self, request):
         return render(request, "ui-typography.html")
