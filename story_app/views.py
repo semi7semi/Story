@@ -44,5 +44,4 @@ class StoryDetailsView(View):
 
 class TypographyView(View):
     def get(self, request):
-
         return render(request, "ui-typography.html")
