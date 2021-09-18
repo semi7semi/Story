@@ -36,6 +36,7 @@ class AddStoryView(View):
 class StoryDetailsView(View):
     def get(self, request, id):
         story = Story.objects.get(pk=id)
+        text = story.plot
         ctx = {
             "story": story
         }
