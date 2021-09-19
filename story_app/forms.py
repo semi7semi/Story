@@ -10,9 +10,11 @@ class AddStory(forms.ModelForm):
             "title": "Tytuł",
             "type": "Rodzaj",
             "plot": "Treść",
+            "publication_date": "Data"
         }
         widgets = {
             "title": forms.TextInput(attrs={'class': "form-control"}),
             "type": forms.Select(attrs={'class': "form-control"}),
             "plot": forms.Textarea(attrs={'class': "form-control"}),
+            "publication_Date": forms.DateInput(attrs={'class': "form-control"}),
         }

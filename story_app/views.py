@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
-
+from datetime import datetime
 from story_app.forms import AddStory
 from story_app.models import Story
 
@@ -18,7 +18,7 @@ class Index(View):
 
 class AddStoryView(View):
     def get(self, request):
-        form = AddStory()
+        form = AddStory(initial={"publication_date": datetime.now()})
         ctx = {
             "form": form
         }
@@ -36,7 +36,6 @@ class AddStoryView(View):
 class StoryDetailsView(View):
     def get(self, request, id):
         story = Story.objects.get(pk=id)
-        text = story.plot
         ctx = {
             "story": story
         }

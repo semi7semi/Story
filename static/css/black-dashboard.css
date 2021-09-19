@@ -241,6 +241,11 @@ table {
   border-collapse: collapse;
 }
 
+.specific-textarea {
+    height: 200px !important;
+    }
+
+
 caption {
   padding-top: 1rem;
   padding-bottom: 1rem;

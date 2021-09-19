@@ -10,7 +10,9 @@ class Story(models.Model):
     title = models.CharField(max_length=128)
     type = models.CharField(max_length=64, choices=TYPES)
     plot = models.TextField()
-    publication_date = models.DateField(auto_now=True)
+    publication_date = models.DateField()
+
+    publication_date.editable = True
 
     def __str__(self):
         return self.title
