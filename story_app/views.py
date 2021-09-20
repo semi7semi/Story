@@ -1,17 +1,22 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
-from datetime import datetime
+from datetime import datetime, timedelta, date
 from story_app.forms import AddStory
 from story_app.models import Story
 
 
 class Index(View):
     def get(self, request):
-        stories = Story.objects.all().order_by("-publication_date")
+        stories = Story.objects.filter(type="erotic").order_by("-publication_date")
+        fantasy = Story.objects.filter(type="fantasy").order_by("-publication_date")
         no_of_stories = Story.objects.count()
+        new_time = date.today() - timedelta(days=3)
+        print(new_time)
         ctx = {
             "stories": stories,
-            "no_of_stories": no_of_stories
+            "fantasy": fantasy,
+            "no_of_stories": no_of_stories,
+            "new_time": new_time
         }
         return render(request, "index.html", ctx)
 

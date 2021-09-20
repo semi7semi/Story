@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-
-{% block title %} UI Tables {% endblock %} 
+{% load static %}
+{% block title %} Lista {% endblock %}
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}{% endblock stylesheets %}
@@ -8,41 +8,87 @@
 {% block content %}
 
 <div class="row">
-  <div class="col-md-8">
-    <div class="card ">
-      <div class="card-header">
-        <h4 class="card-title"> Lista opowiadan</h4>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table tablesorter " id="">
-            <thead class=" text-primary">
-              <tr>
-                <th>Tytuł</th>
-                <th>Kategoria</th>
-                <th>Data</th>
-                <th class="text-center"></th>
-              </tr>
-            </thead>
-            <tbody>
-            {% for story in stories %}
-            <tr>
-              <td><strong><a href="{% url 'story-details' story.id %}">{{story.title}}</a></strong></td>
-                <td>{{story.type}}</td>
-                <td>{{story.publication_date}}</td>
-              {% if request.user.is_superuser %}
-                <td><a href="{% url 'story-delete' story.id %}">Usun</a></td>
-              {% endif %}
-<!--                <td class="text-center"></td>-->
-              </tr>
-            {% endfor %}
-            </tbody>
-          </table>
+    <div class="col-md-8">
+        <div class="card ">
+            <div class="card-header">
+                <h4 class="card-title"> Lista opowiadan erotycznych</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table tablesorter " id="">
+                        <thead class=" text-primary">
+                        <tr>
+                            <th>Tytuł</th>
+                            <th>Kategoria</th>
+                            <th>Data</th>
+                            <th class="text-center"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for story in stories %}
+                        <tr>
+                            <td>
+                                <strong><a href="{% url 'story-details' story.id %}">{{story.title}}</a></strong>
+                                {% if story.publication_date > new_time %}
+                                <img src="{% static 'img/new.png' %}" class="simple-text logo-mini" width="20">
+                                {% endif %}
+                            </td>
+                            <td>{{story.type}}</td>
+                            <td>{{story.publication_date}}</td>
+                            {% if request.user.is_superuser %}
+                            <td><a href="{% url 'story-delete' story.id %}">Usun</a></td>
+                            {% endif %}
+                            <!--                <td class="text-center"></td>-->
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-    <a href="{% url 'add-story' %}" class="btn btn-primary btn-round">Dodaj opowiadanie</a>
-  </div>
+    <div class="col-md-8">
+        <div class="card ">
+            <div class="card-header">
+                <h4 class="card-title"> Lista opowiadan fantasy</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table tablesorter " id="">
+                        <thead class=" text-primary">
+                        <tr>
+                            <th>Tytuł</th>
+                            <th>Kategoria</th>
+                            <th>Data</th>
+                            <th class="text-center"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for story in fantasy %}
+                        <tr>
+                            <td>
+                                <strong><a href="{% url 'story-details' story.id %}">{{story.title}}</a></strong>
+                                {% if story.publication_date > new_time %}
+                                <img src="{% static 'img/new.png' %}" class="simple-text logo-mini" width="20">
+                                {% endif %}
+                            </td>
+                            <td>{{story.type}}</td>
+                            <td>{{story.publication_date}}</td>
+                            {% if request.user.is_superuser %}
+                            <td><a href="{% url 'story-delete' story.id %}">Usun</a></td>
+                            {% endif %}
+                            <!--                <td class="text-center"></td>-->
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<a href="{% url 'add-story' %}" class="btn btn-primary btn-round">Dodaj opowiadanie</a>
 <!--  <div class="col-md-12">-->
 <!--    <div class="card  card-plain">-->
 <!--      <div class="card-header">-->
@@ -77,7 +123,6 @@
 <!--    </div>-->
 <!--  </div>-->
 <!--</div>-->
-</div>
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE  -->
