@@ -45,12 +45,6 @@
               <p>Lista opowiadan</p>
             </a>
           </li>
-<!--          <li class="{% if 'typography' in segment %} active {% endif %}">-->
-<!--            <a href="{% url 'typo' %}">-->
-<!--              <i class="tim-icons icon-align-center"></i>-->
-<!--              <p>Typography</p>-->
-<!--            </a>-->
-<!--          </li>-->
           <li class="{% if 'add' in segment %} active {% endif %}">
             <a href="{% url 'add-story' %}">
               <p>Dodaj opowiadanie</p>
@@ -67,14 +61,21 @@
           <div class="navbar-wrapper">
             <div><img src="{% static 'img/heart.png' %}" class="simple-text logo-mini" width="50"></div>
           </div>
-          <div class="collapse navbar-collapse" id="navigation">
+          <div class="navbar-nav" id="navigation">
 
             <ul class="navbar-nav ml-auto">
-              <li class="search-bar input-group">
+              {% if request.user.is_superuser %}
+                 <li class="nav-item">
+                     <a class="btn btn-secondary btn-round" href="../admin/">
+                         <span>Admin panel</span>
+                     </a>
+                 </li>
+                 {% endif %}
+<!--              <li class="search-bar input-group">-->
 <!--                <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i class="tim-icons icon-zoom-split" ></i>-->
 <!--                  <span class="d-lg-none d-md-block">Search</span>-->
 <!--                </button>-->
-              </li>
+<!--              </li>-->
               <li class="separator d-lg-none"></li>
             </ul>
 

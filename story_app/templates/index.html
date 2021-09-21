@@ -89,41 +89,6 @@
 
 </div>
 <a href="{% url 'add-story' %}" class="btn btn-primary btn-round">Dodaj opowiadanie</a>
-<!--  <div class="col-md-12">-->
-<!--    <div class="card  card-plain">-->
-<!--      <div class="card-header">-->
-<!--        <h4 class="card-title"> Table on Plain Background</h4>-->
-<!--        <p class="category"> Here is a subtitle for this table</p>-->
-<!--      </div>-->
-<!--      <div class="card-body">-->
-<!--        <div class="table-responsive">-->
-<!--          <table class="table tablesorter " id="">-->
-<!--            <thead class=" text-primary">-->
-<!--              <tr>-->
-<!--                <th>Tytuł</th>-->
-<!--                <th>Kategoria</th>-->
-<!--                <th>Data</th>-->
-<!--&lt;!&ndash;                <th class="text-center"></th>&ndash;&gt;-->
-<!--              </tr>-->
-<!--            </thead>-->
-<!--            <tbody>-->
-<!--            {% for story in stories %}-->
-<!--            <tr>-->
-<!--                <td><strong>{{story.title}}</strong></td>-->
-<!--                <td>{{story.type}}</td>-->
-<!--                <td>{{story.publication_date}}</td>-->
-<!--                <td><a href="{% url 'story-details' story.id %}">Czytaj</a></td>-->
-<!--&lt;!&ndash;                <td class="text-center"></td>&ndash;&gt;-->
-<!--              </tr>-->
-<!--            {% endfor %}-->
-<!--            </tbody>-->
-<!--          </table>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-{% endblock content %}
 
-<!-- Specific Page JS goes HERE  -->
+{% endblock content %}
 {% block javascripts %}{% endblock javascripts %}
