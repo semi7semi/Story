@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from story_app.views import Index, AddStoryView, StoryDetailsView, TypographyView, StoryDeleteView
+from story_app.views import Index, AddStoryView, StoryDetailsView, TypographyView, StoryDeleteView, CalendarView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,5 +25,6 @@ urlpatterns = [
     path('story/<int:id>/', StoryDetailsView.as_view(), name='story-details'),
     path('ui-typography/', TypographyView.as_view(), name='typo'),
     path("delete_story/<int:id>/", StoryDeleteView.as_view(), name='story-delete'),
+    path("calendar/", CalendarView.as_view(), name='calendar'),
 
     ]

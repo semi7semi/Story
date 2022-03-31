@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %} Opowiadanie {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header mb-5">
+                <h5 class="card-category"></h5>
+                <h1 class="card-title">Kalendarz</h1>
+            </div>
+            <div class="card-body">
+                <div class="typography-line">
+                    <h1><span>Kalendarz dni płodnych</span>Tu bedzie kalendarz </h1>
+                    <form action="" method="POST">
+                        <div class="row">
+                            <div class="col-md-6 pr-md-1">
+                                <div class="form-group">
+                                    {{ form }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-fill btn-primary">Oblicz</button>
+                        </div>
+                        {% csrf_token %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% if month %}
+<div>
+    <h1 class="card-title">{{ month }}</h1>
+</div>
+<table cellpadding="3" width="80%">
+    <tr>
+        <td>Pon</td>
+        <td>Wt</td>
+        <td>Śr</td>
+        <td>Czw</td>
+        <td>Pią</td>
+        <td>So</td>
+        <td>Ni</td>
+    </tr>
+    {% for week in month_days %}
+    <tr>
+        {% for day in week %}
+        {% if day == period_day %}
+        <td style="color: red">
+            {{ day|date:"j" }}<br/>
+        </td>
+        {% else %}
+        <td>
+            {{ day|date:"j" }}<br/>
+        </td>
+        {% endif %}
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+</div>
+{% endif %}
+
+<a href="{% url 'main' %}" class="btn btn-primary btn-round">Wstecz</a>
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

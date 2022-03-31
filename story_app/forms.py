@@ -18,3 +18,9 @@ class AddStory(forms.ModelForm):
             "plot": forms.Textarea(attrs={'class': "form-control"}),
             "publication_Date": forms.DateInput(attrs={'class': "form-control"}),
         }
+
+
+class AddPeriodForm(forms.Form):
+    period_day = forms.DateField(widget=forms.SelectDateWidget)
+    period_length = forms.IntegerField(min_value=20, max_value=31)
+

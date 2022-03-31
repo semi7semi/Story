@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from datetime import datetime, timedelta, date
-from story_app.forms import AddStory
+from story_app.forms import AddStory, AddPeriodForm
 from story_app.models import Story
+import calendar
+from calendar import HTMLCalendar
+from datetime import datetime
 
 
 class Index(View):
@@ -45,6 +48,41 @@ class StoryDetailsView(View):
             "story": story
         }
         return render(request, "story.html", ctx)
+
+
+class CalendarView(View):
+    def get(self, request):
+        form = AddPeriodForm(initial={"period_length": 30, "period_day": datetime.now()})
+        ctx = {
+            "form": form,
+        }
+        return render(request, "calendar.html", ctx)
+
+    def post(self, request):
+        form = AddPeriodForm(request.POST)
+        now = datetime.now()
+        current_year = now.year
+        current_month = now.month
+        month = now.strftime('%B')
+        cal = calendar.Calendar(calendar.MONDAY)
+        month_days = cal.monthdatescalendar(current_year, current_month)
+        if form.is_valid():
+            period_day = form.cleaned_data["period_day"]
+            period_length = form.cleaned_data["period_length"]
+
+
+            ctx = {
+                "form": form,
+                "month_days": month_days,
+                "current_month": current_month,
+                "month": month,
+                "period_day": period_day,
+            }
+
+            return render(request, "calendar.html", ctx)
+
+
+
 
 
 class StoryDeleteView(View):

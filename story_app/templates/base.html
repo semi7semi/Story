@@ -50,6 +50,11 @@
               <p>Dodaj opowiadanie</p>
             </a>
           </li>
+          <li class="{% if 'add' in segment %} active {% endif %}">
+            <a href="{% url 'calendar' %}">
+              <p>Kalendarz dni płodnych</p>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
