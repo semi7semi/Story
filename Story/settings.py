@@ -85,20 +85,20 @@ WSGI_APPLICATION = 'Story.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 # #
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         default=config('DATABASE_URL')
-#     )
-# }
 DATABASES = {
-    'default': {
-        'HOST': '127.0.0.1',
-        'NAME': 'story_db',
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'USER': 'postgres',
-        'PASSWORD': 'marcin7',
-    }
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
 }
+# DATABASES = {
+#     'default': {
+#         'HOST': '127.0.0.1',
+#         'NAME': 'story_db',
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'USER': 'postgres',
+#         'PASSWORD': 'marcin7',
+#     }
+# }
 
 
 # Password validation

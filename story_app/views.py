@@ -4,8 +4,9 @@ from datetime import datetime, timedelta, date
 from story_app.forms import AddStory, AddPeriodForm
 from story_app.models import Story
 import calendar
+from dateutil.relativedelta import relativedelta
 from calendar import HTMLCalendar
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 class Index(View):
@@ -62,26 +63,39 @@ class CalendarView(View):
         form = AddPeriodForm(request.POST)
         now = datetime.now()
         current_year = now.year
-        current_month = now.month
-        month = now.strftime('%B')
         cal = calendar.Calendar(calendar.MONDAY)
-        month_days = cal.monthdatescalendar(current_year, current_month)
+
         if form.is_valid():
             period_day = form.cleaned_data["period_day"]
             period_length = form.cleaned_data["period_length"]
-
-
+            current_month = period_day.month
+            month_days = cal.monthdatescalendar(current_year, current_month)
+            month = period_day.strftime('%B')
+            month_next = (period_day + relativedelta(months=1)).strftime('%B')
+            month_days_next = cal.monthdatescalendar(current_year, current_month+1)
+            ovulation_day = period_day + timedelta(days=period_length-13)
+            day3 = ovulation_day - timedelta(days=3)
+            day2 = ovulation_day - timedelta(days=2)
+            day1 = ovulation_day - timedelta(days=1)
+            day0 = ovulation_day + timedelta(days=1)
+            next_period = period_day + timedelta(days=period_length)
             ctx = {
                 "form": form,
                 "month_days": month_days,
+                "month_days_next": month_days_next,
                 "current_month": current_month,
                 "month": month,
+                "month_next": month_next,
                 "period_day": period_day,
+                "ovulation_day": ovulation_day,
+                "next_period": next_period,
+                "day0": day0,
+                "day1": day1,
+                "day2": day2,
+                "day3": day3,
             }
 
             return render(request, "calendar.html", ctx)
-
-
 
 
 

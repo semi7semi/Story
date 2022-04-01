@@ -36,37 +36,144 @@
     </div>
 </div>
 {% if month %}
-<div>
-    <h1 class="card-title">{{ month }}</h1>
-</div>
-<table cellpadding="3" width="80%">
-    <tr>
-        <td>Pon</td>
-        <td>Wt</td>
-        <td>Śr</td>
-        <td>Czw</td>
-        <td>Pią</td>
-        <td>So</td>
-        <td>Ni</td>
-    </tr>
-    {% for week in month_days %}
-    <tr>
-        {% for day in week %}
-        {% if day == period_day %}
-        <td style="color: red">
-            {{ day|date:"j" }}<br/>
-        </td>
-        {% else %}
-        <td>
-            {{ day|date:"j" }}<br/>
-        </td>
-        {% endif %}
-        {% endfor %}
-    </tr>
-    {% endfor %}
-</table>
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="row">
+                <div class="card-body">
+                    <div class="typography-line">
+                        <div>
+                            <h1 class="card-title">{{ month }}</h1>
+                        </div>
+                        <table class="table" cellpadding="3" width="80%">
+                            <tr class="thead-light">
+                                <th>Pon</th>
+                                <th>Wt</th>
+                                <th>Śr</th>
+                                <th>Czw</th>
+                                <th>Pią</th>
+                                <th>So</th>
+                                <th>Ni</th>
+                            </tr>
+                            {% for week in month_days %}
+                            <tr>
+                                {% for day in week %}
+                                {% if day == period_day %}
+                                <td style="background: #6A5ACD">
+                                    {{ day|date:"j" }}<br/>
+                                </td>
+                                {% elif day == day3 %}
+                                <td style="border: 2px solid green">
+                                    {{ day|date:"j" }}<br/>
+                                </td>
+                                {% elif day == day2 %}
+                                <td style="border: 2px solid green">
+                                    {{ day|date:"j" }}<br/>
+                                </td>
+                                {% elif day == day1 %}
+                                <td style="border: 2px solid green">
+                                    {{ day|date:"j" }}<br/>
+                                </td>
+                                {% elif day == ovulation_day %}
+                                <td style="background: green">
+                                    {{ day|date:"j" }}<br/>
+                                </td>
+                                {% elif day == day0 %}
+                                <td style="border: 2px solid green">
+                                    {{ day|date:"j" }}<br/>
+                                </td>
+                                {% elif day == next_period %}
+                                <td style="background: #6A5ACD">
+                                    {{ day|date:"j" }}<br/>
+                                </td>
+                                {% else %}
+                                <td>
+                                    {{ day|date:"j" }}<br/>
+                                </td>
+                                {% endif %}
+                                {% endfor %}
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="typography-line">
+                        <div>
+                            <h1 class="card-title">{{ month_next }}</h1>
+                        </div>
+                        <table class="table" cellpadding="3" width="80%">
+                            <tr class="thead-light">
+                                <th>Pon</th>
+                                <th>Wt</th>
+                                <th>Śr</th>
+                                <th>Czw</th>
+                                <th>Pią</th>
+                                <th>So</th>
+                                <th>Ni</th>
+                            </tr>
+                            {% for week in month_days_next %}
+                            <tr>
+                                {% for day in week %}
+                                {% if day == period_day %}
+                                <td style="background: #6A5ACD">
+                                    {{ day|date:"j" }}<br/>
+                                </td>
+                                {% elif day == day3 %}
+                                <td style="border: 2px solid green">
+                                    {{ day|date:"j" }}<br/>
+                                </td>
+                                {% elif day == day2 %}
+                                <td style="border: 2px solid green">
+                                    {{ day|date:"j" }}<br/>
+                                </td>
+                                {% elif day == day1 %}
+                                <td style="border: 2px solid green">
+                                    {{ day|date:"j" }}<br/>
+                                </td>
+                                {% elif day == ovulation_day %}
+                                <td style="background: green">
+                                    {{ day|date:"j" }}<br/>
+                                </td>
+                                {% elif day == day0 %}
+                                <td style="border: 2px solid green">
+                                    {{ day|date:"j" }}<br/>
+                                </td>
+                                {% elif day == next_period %}
+                                <td style="background: #6A5ACD">
+                                    {{ day|date:"j" }}<br/>
+                                </td>
+                                {% else %}
+                                <td>
+                                    {{ day|date:"j" }}<br/>
+                                </td>
+                                {% endif %}
+                                {% endfor %}
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endif %}
+<table cellpadding="5" width="70%">
+    <tr>
+        <td style="background: #6A5ACD"></td>
+        <th>początek cyklu</th>
+    </tr>
+    <tr>
+        <td style="background: green"></td>
+        <th>Spodziewany dzień owulacji</th>
+    </tr>
+        <tr>
+        <td style="border: 2px solid green"></td>
+        <th>Dni płodne</th>
+    </tr>
+</table>
+<br/>
 
 <a href="{% url 'main' %}" class="btn btn-primary btn-round">Wstecz</a>
 {% endblock content %}

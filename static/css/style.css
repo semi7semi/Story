@@ -20,6 +20,22 @@
   box-sizing: border-box;
 }
 
+calendar-tab{
+    background: var(--lighter-background-color);
+    font-size: 1.5rem;
+    width: 80%;
+    cell-padding: 3;
+}
+
+ovulation-day {
+    background: var(--green);
+}
+
+period-day {
+    background: #ff4d4d;
+}
+
+
 html {
   min-height: 100%;
 }
